@@ -10,7 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Utility {
+public class Utility { //用JSONArray 和 JSONObject 将数据解析出来，然后组装成实体类对象
     /**
      * 解析和处理服务器返回的省级数据
      */
@@ -37,19 +37,19 @@ public class Utility {
      * 解析和处理服务器返回的市级数据
      */
     public static boolean handleCityResponse(String response,int provinceId){
-        if (!TextUtils.isEmpty(response)){
+        if (!TextUtils.isEmpty(response)) {
             try {
                 JSONArray allCity = new JSONArray(response);
-                for (int i = 0; i < allCity.length(); i++){
+                for (int i = 0; i < allCity.length(); i++) {
                     JSONObject cityObject = allCity.getJSONObject(i);
                     City city = new City();
                     city.setCityName(cityObject.getString("name"));
                     city.setCityCode(cityObject.getInt("id"));
-                    city.setProvinceId(provinceId);
+                    city.setProvinceCode(provinceId);
                     city.save();
                 }
                 return true;
-            }catch (JSONException e){
+            } catch (JSONException e) {
                 e.printStackTrace();
             }
         }

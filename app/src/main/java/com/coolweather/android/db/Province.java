@@ -3,9 +3,9 @@ package com.coolweather.android.db;
 import org.litepal.crud.DataSupport;
 
 public class Province extends DataSupport {
-    private int id;
-    private String provinceName;
-    private int provinceCode;
+    private int id; //每个实体类都会有的标识符
+    private String provinceName; //省的名字
+    private int provinceCode; //省的代号
 
     public int getId() {
         return id;
