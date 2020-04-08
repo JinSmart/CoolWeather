@@ -45,7 +45,7 @@ public class Utility { //用JSONArray 和 JSONObject 将数据解析出来，然
                     City city = new City();
                     city.setCityName(cityObject.getString("name"));
                     city.setCityCode(cityObject.getInt("id"));
-                    city.setProvinceCode(provinceId);
+                    city.setProvinceId(provinceId);
                     city.save();
                 }
                 return true;

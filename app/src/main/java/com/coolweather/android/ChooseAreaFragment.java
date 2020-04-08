@@ -39,7 +39,6 @@ import okhttp3.Response;
  * A simple {@link Fragment} subclass.
  */
 public class ChooseAreaFragment extends Fragment {
-    public static final String TAG ="MainActivity";
 
     public static final int LEVEL_PROVINCE = 0;
     public static final int LEVEL_CITY = 1;
@@ -90,14 +89,12 @@ public class ChooseAreaFragment extends Fragment {
         listView =  view.findViewById(R.id.list_view);
         adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1,dataList);
         listView.setAdapter(adapter);
-        Log.d(TAG, "onCreateView: ");
         
         return view;
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        Log.d(TAG, "onActivityCreated: ");
         
         super.onActivityCreated(savedInstanceState);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -123,7 +120,6 @@ public class ChooseAreaFragment extends Fragment {
             }
         });
         queryProvinces(); //开始加载省级数据
-        Log.d(TAG, "onActivityCreated: begin");
     }
 
     /**
@@ -145,7 +141,6 @@ public class ChooseAreaFragment extends Fragment {
             String address = "http://guolin.tech/api/china";
             queryFromServer(address, "province"); //从服务器上查询数据
         }
-        Log.d(TAG, "queryProvinces: ");
     }
 
     /**
@@ -168,7 +163,6 @@ public class ChooseAreaFragment extends Fragment {
             String address = "http://guolin.tech/api/china/"+provinceCode;
             queryFromServer(address, "city");
         }
-        Log.d(TAG, "queryCities: ");
     }
 
     /**
@@ -192,7 +186,6 @@ public class ChooseAreaFragment extends Fragment {
             String address = "http://guolin.tech/api/china/"+provinceCode+"/"+cityCode;
             queryFromServer(address,"county");
         }
-        Log.d(TAG, "queryCounties: ");
     }
 
     /**
@@ -210,7 +203,6 @@ public class ChooseAreaFragment extends Fragment {
             public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
                 String responseText = response.body().string();
                 boolean result = false;
-                Log.d(TAG, "onResponse: begin");
                 if ("province".equals(type)){
                     result = Utility.handleProvinceResponse(responseText);
                 } else if ("city".equals(type)){
@@ -233,7 +225,6 @@ public class ChooseAreaFragment extends Fragment {
                         }
                     });
                 }
-                Log.d(TAG, "onResponse: over");
             }
 
             @Override
@@ -244,7 +235,6 @@ public class ChooseAreaFragment extends Fragment {
                     public void run() {
                         closeProgressDialog();
                         Toast.makeText(getContext(), "加载失败", Toast.LENGTH_SHORT).show();
-                        Log.d(TAG, "run: fail");
                     }
                 });
             }
@@ -261,7 +251,6 @@ public class ChooseAreaFragment extends Fragment {
             progressDialog.setCanceledOnTouchOutside(false);
         }
         progressDialog.show();
-        Log.d(TAG, "showProgressDialog: ");
     }
 
     /**
@@ -271,7 +260,6 @@ public class ChooseAreaFragment extends Fragment {
         if (progressDialog != null){
             progressDialog.dismiss();
         }
-        Log.d(TAG, "closeProgressDialog: "); 
     }
 
 }
