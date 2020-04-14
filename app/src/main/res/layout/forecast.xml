@@ -15,7 +15,6 @@
         android:text="预报"
         android:textColor="#fff"
         android:textSize="20sp"/>
-
     <!-- 定义显示未来几天天气预报的布局 -->
     <LinearLayout
         android:id="@+id/forecast_layout"

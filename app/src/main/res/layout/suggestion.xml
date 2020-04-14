@@ -15,7 +15,6 @@
         android:text="生活建议"
         android:textColor="#fff"
         android:textSize="20sp"/>
-
     <!-- 显示舒适度 -->
     <TextView
         android:id="@+id/comfort_text"
@@ -23,7 +22,6 @@
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
         android:textColor="#fff" />
-
     <!-- 显示洗车建议 -->
     <TextView
         android:id="@+id/car_wash_text"
@@ -31,7 +29,6 @@
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
         android:textColor="#fff" />
-
     <!-- 显示运动建议 -->
     <TextView
         android:id="@+id/sport_text"

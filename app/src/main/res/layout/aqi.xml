@@ -15,7 +15,6 @@
         android:text="空气质量"
         android:textColor="#fff"
         android:textSize="20sp"/>
-
     <!-- 嵌套实现左右平分且集中对其的布局 -->
     <LinearLayout
         android:layout_width="match_parent"
@@ -41,7 +40,6 @@
                 android:text="AQI 指数"
                 android:textColor="#fff" />
         </LinearLayout>
-
         <!-- 显示PM2.5指数 -->
         <LinearLayout
             android:orientation="vertical"
@@ -62,7 +60,5 @@
                 android:text="PM2.5 指数"
                 android:textColor="#fff" />
         </LinearLayout>
-
     </LinearLayout>
-
 </LinearLayout>
